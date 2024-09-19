@@ -7,6 +7,7 @@ body {
   overflow: hidden;
   position: relative;
   text-align: center;
+  touch-action: none;
 }
 
 canvas {
@@ -15,6 +16,7 @@ canvas {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  touch-action: none;
 }
 .text {
   color: white;
