@@ -2,12 +2,26 @@ let cols;
 let rows;
 let size = 10;
 let grid = [];
-let c = 0
+let c = 0;
+
+const saveBtn = document.getElementById("saveBtn");
+const refreshBtn = document.getElementById("refreshBtn");
 
 function setup() {
-  createCanvas(400, 400);
+  let canvas = createCanvas(400, 400);
+
+  canvas.parent("container");
+
   colorMode(HSB);
   angleMode(DEGREES);
+
+  saveBtn.addEventListener("click", () => {
+    saveImg();
+  });
+  refreshBtn.addEventListener("click", (e) => {
+    window.location.reload();
+  });
+
   cols = width / size;
   rows = height / size;
 
@@ -19,8 +33,13 @@ function setup() {
   }
 }
 
+function saveImg() {
+  save("art.png");
+}
+
 function draw() {
   background(0);
+  
   stroke(0);
   if (mouseX < width && mouseX > 0 && mouseY < height && mouseY > 0) {
     if (mouseIsPressed) {
